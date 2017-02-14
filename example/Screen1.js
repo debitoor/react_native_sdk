@@ -118,23 +118,24 @@ export default class Screen1 extends Component {
         // Adjust.resetSessionCallbackParameters();
         // Adjust.resetSessionPartnerParameters();
 
-        Adjust.getAttribution((attribution) => {
-            console.log("Tracker token = " + attribution.trackerToken);
-            console.log("Tracker name = " + attribution.trackerName);
-            console.log("Network = " + attribution.network);
-            console.log("Campaign = " + attribution.campaign);
-            console.log("Adgroup = " + attribution.adgroup);
-            console.log("Creative = " + attribution.creative);
-            console.log("Click label = " + attribution.clickLabel);
-            console.log("Adid = " + attribution.adid);
-        });
+        //Adjust.getAttribution((attribution) => {
+            //console.log("Tracker token = " + attribution.trackerToken);
+            //console.log("Tracker name = " + attribution.trackerName);
+            //console.log("Network = " + attribution.network);
+            //console.log("Campaign = " + attribution.campaign);
+            //console.log("Adgroup = " + attribution.adgroup);
+            //console.log("Creative = " + attribution.creative);
+            //console.log("Click label = " + attribution.clickLabel);
+            //console.log("Adid = " + attribution.adid);
+        //});
 
-        Adjust.getAdid((adid) => {
-            console.log("Adid = " + adid);
-        });
+        //Adjust.getAdid((adid) => {
+            //console.log("Adid = " + adid);
+        //});
 
         Adjust.setPushToken("bunny_foo_foo");
 
+        Adjust.initTestServer("http://172.16.150.242:8080")
         Adjust.create(adjustConfig);
 
         Adjust.sendFirstPackages();
@@ -207,26 +208,27 @@ export default class Screen1 extends Component {
     }
 
     _onPress_trackSimpleEvent() {
-        Adjust.isEnabled((isEnabled) => {
-            if (isEnabled) {
-                Adjust.getAdid((adid) => {
-                    console.log("Adid = " + adid);
-                });
+        Adjust.runFooTest()
+        //Adjust.isEnabled((isEnabled) => {
+            //if (isEnabled) {
+                //Adjust.getAdid((adid) => {
+                    //console.log("Adid = " + adid);
+                //});
 
-                Adjust.getIdfa((idfa) => {
-                    console.log("IDFA = " + idfa);
-                });
+                //Adjust.getIdfa((idfa) => {
+                    //console.log("IDFA = " + idfa);
+                //});
 
-                Adjust.getGoogleAdId((googleAdId) => {
-                    console.log("Google Ad Id = " + googleAdId);
-                });
+                //Adjust.getGoogleAdId((googleAdId) => {
+                    //console.log("Google Ad Id = " + googleAdId);
+                //});
 
-                var adjustEvent = new AdjustEvent("g3mfiw");
-                Adjust.trackEvent(adjustEvent);
-            } else {
-                console.log(">>> SDK is disabled");
-            }
-        });
+                //var adjustEvent = new AdjustEvent("g3mfiw");
+                //Adjust.trackEvent(adjustEvent);
+            //} else {
+                //console.log(">>> SDK is disabled");
+            //}
+        //});
     }
 
     _onPress_trackRevenueEvent() {

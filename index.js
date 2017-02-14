@@ -13,6 +13,14 @@ Adjust.create = function(adjustConfig) {
     module_adjust.create(adjustConfig);
 };
 
+Adjust.runFooTest = function() {
+    module_adjust.fooTest();
+};
+
+Adjust.initTestServer = function(baseUrl) {
+    module_adjust.initTestServer(baseUrl);
+};
+
 Adjust.trackEvent = function (adjustEvent) {
     module_adjust.trackEvent(adjustEvent);
 };

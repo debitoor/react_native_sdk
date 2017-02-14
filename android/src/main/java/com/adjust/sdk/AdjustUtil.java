@@ -70,7 +70,7 @@ final class AdjustUtil {
         map.putString(ATTRIBUTION_ADGROUP, null != attribution.adgroup ? attribution.adgroup : "");
         map.putString(ATTRIBUTION_CREATIVE, null != attribution.creative ? attribution.creative : "");
         map.putString(ATTRIBUTION_CLICK_LABEL, null != attribution.clickLabel ? attribution.clickLabel : "");
-        map.putString(ATTRIBUTION_ADID, null != attribution.adid ? attribution.adid : "");
+        //map.putString(ATTRIBUTION_ADID, null != attribution.adid ? attribution.adid : "");
 
         return map;
     }

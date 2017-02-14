@@ -20,6 +20,7 @@ import com.facebook.react.bridge.*;
 import com.facebook.react.modules.core.*;
 
 import com.adjust.sdk.*;
+import com.adjust.analyzertest.*;
 
 public class Adjust extends ReactContextBaseJavaModule implements LifecycleEventListener, 
                 OnAttributionChangedListener, 
@@ -92,6 +93,16 @@ public class Adjust extends ReactContextBaseJavaModule implements LifecycleEvent
     public boolean launchReceivedDeeplink(Uri uri) {
         sendEvent(getReactApplicationContext(), "adjust_deferredDeeplink", AdjustUtil.deferredDeeplinkToMap(uri));
         return this.shouldLaunchDeeplink;
+    }
+
+    @ReactMethod
+    public void fooTest() {
+        FooTest.foo();
+    }
+
+    @ReactMethod
+    public void initTestServer(String baseUrl) {
+        AdjustAnalyzer.init(baseUrl);
     }
 
     @ReactMethod
@@ -349,15 +360,15 @@ public class Adjust extends ReactContextBaseJavaModule implements LifecycleEvent
         });
     }
 
-    @ReactMethod
-    public void getAdid(Callback callback) {
-        callback.invoke(com.adjust.sdk.Adjust.getAdid());
-    }
+    //@ReactMethod
+    //public void getAdid(Callback callback) {
+        //callback.invoke(com.adjust.sdk.Adjust.getAdid());
+    //}
 
-    @ReactMethod
-    public void getAttribution(Callback callback) {
-        callback.invoke(AdjustUtil.attributionToMap(com.adjust.sdk.Adjust.getAttribution()));
-    }
+    //@ReactMethod
+    //public void getAttribution(Callback callback) {
+        //callback.invoke(AdjustUtil.attributionToMap(com.adjust.sdk.Adjust.getAttribution()));
+    //}
 
     @ReactMethod
     public void setAttributionCallbackListener() {

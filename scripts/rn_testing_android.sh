@@ -19,12 +19,12 @@ cd ${SDK_DIR}
 git submodule update --init --recursive
 
 # Removing the old Android JAR file
-echo -e "${GREEN}>>> Removing the Android JAR file ${NC}"
-rm -rfv android/libs/*
+#echo -e "${GREEN}>>> Removing the Android JAR file ${NC}"
+#rm -rfv android/libs/*
 
-# Building the Android JAR file
-echo -e "${GREEN}>>> Building the Android JAR file ${NC}"
-ext/android/build.sh
+## Building the Android JAR file
+#echo -e "${GREEN}>>> Building the Android JAR file ${NC}"
+#ext/android/build.sh
 
 echo -e "${GREEN}>>> Running npm install on example project${NC}"
 cd ${SDK_DIR}/${EXAMPLE_DIR}
